@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, Phone, MapPin, Calendar, Award, Code, Zap, Brain, Cloud, ExternalLink, ChevronDown, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Instagram, Twitter, MapPin, Calendar, Award, Code, Zap, Brain, Cloud, ExternalLink, ChevronDown, Menu, X } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -59,9 +59,9 @@ const Portfolio = () => {
   ];
 
   const certifications = [
-    { name: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize", provider: "Udemy", year: "2025" },
-    { name: "Cloud Computing", provider: "NPTEL - IIT Kharagpur", year: "2024" },
-    { name: "MATLAB Onramp", provider: "MATLAB", year: "2024" }
+    { name: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize", provider: "Udemy", year: "2025", link: "https://www.udemy.com/certificate/UC-57c3d4ed-178e-4d4f-ad98-8afa6d2862b8/" },
+    { name: "Cloud Computing", provider: "NPTEL - IIT Kharagpur", year: "2024", link: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL24CS118S106210035703872584" },
+    { name: "MATLAB Onramp", provider: "MATLAB", year: "2024", link: "https://matlabacademy.mathworks.com/progress/share/certificate.html?id=829b8fda-0869-4852-ad20-7e37f2482c08&" }
   ];
 
   const workshops = [
@@ -395,12 +395,48 @@ const Portfolio = () => {
               <h3 className="text-2xl font-semibold mb-6 text-purple-400">Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((cert, i) => (
-                  <div key={i} className="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300">
-                    <h4 className="font-semibold text-purple-300">{cert.name}</h4>
-                    <p className="text-sm text-gray-400">{cert.provider} • {cert.year}</p>
+                  <div key={i} className="bg-gray-800 p-4 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 group">
+                    <div className="flex justify-between items-start">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-purple-300 group-hover:text-purple-200 transition-colors">
+                          {cert.name}
+                        </h4>
+                        <p className="text-sm text-gray-400">{cert.provider} • {cert.year}</p>
+                      </div>
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-3 text-purple-400 hover:text-purple-300 transition-colors"
+                        title="View Certificate"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Workshops Section */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-semibold mb-6 text-orange-400">Workshops Attended</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {workshops.map((workshop, i) => (
+                <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-orange-500 transition-all duration-300 transform hover:scale-105">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-orange-400 mb-2">{workshop.name}</h4>
+                    <p className="text-sm text-gray-400 mb-2">{workshop.focus}</p>
+                    <span className="text-xs text-gray-500">{workshop.year}</span>
+                  </div>
+                  <div className="mt-4 text-xs text-gray-400 leading-relaxed">
+                    {i === 0 && "Enhanced understanding of DL fundamentals with real-time feedback from NVIDIA DLI Institute Ambassador."}
+                    {i === 1 && "Modeled and simulated 5+ real-world systems using MATLAB and Simulink in industrial context."}
+                    {i === 2 && "Participated in practical session on designing PCB layouts for complex electric circuits."}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -429,6 +465,7 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-16">
@@ -452,14 +489,26 @@ const Portfolio = () => {
               <span className="text-sm text-gray-400">+91 7396189606</span>
             </a>
 
-            <a href="#" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-600 transition-all duration-300 transform hover:scale-105 group">
+            <a href="https://www.linkedin.com/in/dheeraj-reddy-k-505022204" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-600 transition-all duration-300 transform hover:scale-105 group">
               <Linkedin className="text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300" size={32} />
               <span className="text-sm text-gray-400">LinkedIn</span>
             </a>
 
-            <a href="#" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 group">
+            <a href="https://github.com/Dheeraj070" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105 group">
               <Github className="text-purple-400 mb-3 group-hover:scale-110 transition-transform duration-300" size={32} />
               <span className="text-sm text-gray-400">GitHub</span>
+            </a>
+
+            {/* Optional: Instagram */}
+            <a href="https://www.instagram.com/dheeraj_7x" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-pink-500 transition-all duration-300 transform hover:scale-105 group">
+              <Instagram className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-sm text-gray-400">Instagram</span>
+            </a>
+
+            {/* Optional: X/Twitter */}
+            <a href="https://x.com/Dheeraj_7x" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 group">
+              <Twitter className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-sm text-gray-400">X</span>
             </a>
           </div>
 
